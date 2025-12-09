@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (errores.length > 0) {
                 e.preventDefault();
                 mensajeDiv.innerHTML = "<ul style='color:darkred;'>" +
-                    errores.map(err => <li>${err}</li>).join("") +
+                    errores.map(err => `<li>${err}</li>`).join("") +
                     "</ul>";
             } else {
                 mensajeDiv.innerHTML = "<p style='color:green;'>¡Gracias por contactarnos! Te responderemos pronto.</p>";

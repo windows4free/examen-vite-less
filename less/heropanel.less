@@ -15,6 +15,7 @@
     justify-content: center;
     margin: 0;
     padding: 0;
+    
     picture,
     img {
         position: absolute;
@@ -28,25 +29,52 @@
         margin: 0;
         padding: 0;
         border: none;
+        transition: transform @transition-slow;
     }
+    
+    &:hover {
+        picture, img {
+            transform: scale(1.05);
+        }
+    }
+    
     .hero-action {
         &.center {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 90%;
-            max-width: 600px;
-            background: fadeout(@background-primary-light, 8%);
+            max-width: 650px;
+            background: fadeout(@background-primary-light, 5%);
+            backdrop-filter: blur(10px);
             border-radius: 24px;
-            padding: 2rem 1.5rem;
+            padding: 3rem 2rem;
             transform: translate(-50%, -50%);
             text-align: center;
-            color: @background-primary;
-            box-shadow: 0 4px 24px fadeout(@background-primary, 80%);
+            color: @background-primary-dark;
+            box-shadow: @shadow-hover;
             font-size: 1.4rem;
             z-index: 2;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+            transition: all @transition-smooth;
+            border: 2px solid fadeout(@background-primary, 70%);
+            
+            &:hover {
+                transform: translate(-50%, -50%) scale(1.02);
+                box-shadow: 0 12px 40px fadeout(@background-primary-dark, 60%);
+            }
+            
+            p {
+                margin: 0.75rem 0;
+                line-height: 1.7;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+            }
+            
             strong {
-                color: @background-secondary;
+                color: @background-primary;
+                font-weight: 600;
+                letter-spacing: 1px;
             }
         }
     }

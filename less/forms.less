@@ -1,24 +1,38 @@
 input, select {
     width: 100%;
     font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid @border-primary;
-    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: 2px solid @border-primary;
+    border-radius: 8px;
+    background: @background-primary-light;
+    transition: all @transition-normal;
+    font-family: 'Roboto', sans-serif;
+    
     &:focus {
-        outline: 1.5px solid #333;
+        outline: none;
+        border-color: @background-secondary;
+        box-shadow: 0 0 0 3px fadeout(@background-secondary, 80%);
+        transform: translateY(-2px);
+    }
+    
+    &:hover {
+        border-color: fadeout(@background-secondary, 40%);
     }
 }
 
 label {
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+    color: @background-primary-dark;
+    letter-spacing: 0.5px;
 }
 
 select {
     appearance: none;
+    cursor: pointer;
 }
 
 div.select {
@@ -26,70 +40,125 @@ div.select {
     &::after {
         content: '\2304';
         position: absolute;
-        right: 0px;
-        padding-right: 0.36rem;
+        right: 1rem;
         top: 50%;
-        z-index: 99;
-        transform: translateY(-75%);
+        z-index: 1;
+        transform: translateY(-25%);
         font-size: 1.5rem;
-        color: @border-primary;
+        color: @background-primary;
+        pointer-events: none;
+        transition: transform @transition-fast;
+    }
+    
+    &:hover::after {
+        transform: translateY(-25%) scale(1.2);
     }
 }
 
 button {
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 3px 3px 5px @shadow-button;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     cursor: pointer;
+    transition: all @transition-smooth;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: fadeout(@text-primary, 80%);
+        transform: translate(-50%, -50%);
+        transition: width @transition-smooth, height @transition-smooth;
+    }
+    
+    &:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+    
     &.btn-confirmar {
-        background-color: @background-primary;
+        background: linear-gradient(135deg, @background-primary 0%, @background-primary-dark 100%);
         color: @text-primary;
-        border-radius: 30px;
-        padding: 1rem 2.5rem;
-        font-size: 1.2rem;
+        border-radius: 50px;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
         margin: 0.5rem;
-        box-shadow: 0 2px 8px @shadow-color;
-        transition: background 0.3s, color 0.3s;
-        &:hover,
-        &:focus {
-            background: @background-secondary;
-            color: @text-primary;
+        box-shadow: @shadow-card;
+        position: relative;
+        z-index: 1;
+        
+        &:hover {
+            transform: translateY(-3px) @hover-scale-button;
+            box-shadow: @shadow-hover;
+        }
+        
+        &:active {
+            transform: translateY(-1px) scale(0.98);
         }
     }
+    
     &.btn-cancelar {
         background-color: @cancel-color;
         color: @text-primary;
+        
+        &:hover {
+            background-color: lighten(@cancel-color, 10%);
+            transform: translateY(-2px);
+        }
     }
 }
 
 .error {
     color: @error-color;
+    font-weight: 500;
 }
 
 input.error {
-    color: initial;
-    outline: red;
-    border: solid 1px red;
+    border-color: @error-color;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
 textarea {
     width: 100%;
     font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid @border-primary;
-    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: 2px solid @border-primary;
+    border-radius: 8px;
     resize: vertical;
     min-height: 120px;
     box-sizing: border-box;
     margin-bottom: 1.5rem;
+    background: @background-primary-light;
+    font-family: 'Roboto', sans-serif;
+    transition: all @transition-normal;
+    
+    &:focus {
+        outline: none;
+        border-color: @background-secondary;
+        box-shadow: 0 0 0 3px fadeout(@background-secondary, 80%);
+    }
 }
 
 #contacto-mensaje,
 #form-mensaje {
     margin-top: 1rem;
+    animation: fadeIn 0.5s ease-out;
+    
     ul {
         color: @error-color;
         padding-left: 1.2rem;

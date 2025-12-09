@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Roboto:wght@300;400;500;700&display=swap');
+
 @import 'variables.less';
+@import 'animaciones.less';
 
 * {
     box-sizing: border-box;
@@ -11,17 +14,19 @@
 
 html {
     height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
     height: 100%;
     padding: 0px;
     margin: 0px;
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: @background-primary-light;
     color: @text-secondary;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 @import "header.less";
@@ -36,23 +41,38 @@ main {
 @import "forms.less";
 
 footer {
-    background-color: @background-primary;
+    background: linear-gradient(135deg, @background-primary 0%, @background-primary-dark 100%);
     color: @text-primary;
     text-align: center;
-    padding: 1rem 0.5rem;
+    padding: 2rem 1rem;
     font-size: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+    
     section {
         max-width: 1024px;
         margin: 0 auto;
+        line-height: 1.8;
     }
+    
     a {
         color: @background-container;
-        text-decoration: underline;
-        font-weight: bold;
-        transition: color 0.3s;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all @transition-normal;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+        
         &:hover {
-            color: @background-secondary;
+            color: @text-primary;
+            border-bottom-color: @background-container;
+            transform: translateY(-2px);
         }
     }
+}
+
+// Smooth scroll y efectos generales
+::selection {
+    background: @background-secondary;
+    color: @text-primary;
 }
