@@ -1,4 +1,4 @@
-name: VITE MPA Proceso de Despligue a Github Pages
+name: VITE MPA Proceso de Despliegue a Github Pages
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
   build:
     environment:
       name: github-pages
-      url: ${{ steps.github-pages.output.url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -30,24 +30,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Instalar Dependencias del Proyecto
-        run: npm install
+        run: npm ci
 
       - name: Compilar Sitio (BUILD)
         run: npm run build
         env:
           DEPLOY_BASE_URL: /ByMei-Vite-Less/
 
-
       - name: Verificar contenido del dist
         run: ls -R dist
 
-      - name: Copiar carpeta assets
-        run: |
-          mkdir -p dist/assets
-          cp -r dist/assets dist/ 2>/dev/null || true
-          touch dist/.nojekyll
+      - name: Crear archivo .nojekyll
+        run: touch dist/.nojekyll
 
       - name: Configurar Github Pages
         uses: actions/configure-pages@v5

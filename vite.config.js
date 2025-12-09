@@ -1,22 +1,20 @@
 import { defineConfig } from "vite";
-import path, { resolve } from "node:path";
-import * as glob from "glob";
+import { resolve } from "node:path";
+import { glob } from "glob";
 import { ViteMinifyPlugin } from "vite-plugin-minify";
 import handlebars from "vite-plugin-handlebars";
 import { getData } from "./src/data/index.js";
 
 function obtenerEntradas() {
+  const files = glob.sync("./**/*.html", {
+    ignore: ["./dist/**", "./node_modules/**"],
+  });
+  
   return Object.fromEntries(
-    glob
-      .sync("./**/*.html", {
-        ignore: ["./dist/**", "./node_modules/**"],
-      })
-      .map((file) => {
-        return [
-          file.slice(2, file.length - path.extname(file).length),
-          resolve(process.cwd(), file),
-        ];
-      })
+    files.map((file) => {
+      const name = file.slice(2, file.lastIndexOf('.'));
+      return [name, resolve(process.cwd(), file)];
+    })
   );
 }
 
@@ -27,6 +25,18 @@ export default defineConfig({
     minify: true,
     rollupOptions: {
       input: obtenerEntradas(),
+      output: {
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        math: "always",
+        relativeUrls: true,
+        javascriptEnabled: true,
+      },
     },
   },
   plugins: [
