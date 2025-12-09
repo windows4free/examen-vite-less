@@ -34,11 +34,14 @@ jobs:
       - name: Instalar Dependencias del Proyecto
         run: npm install
 
-
       - name: Compilar Sitio (BUILD)
         run: npm run build
         env:
           DEPLOY_BASE_URL: /ByMei-Vite-Less/
+
+      # 👇 NUEVO PASO (Evita que Pages ignore /assets o los recorra como Jekyll)
+      - name: Evitar procesamiento de GitHub Pages
+        run: touch dist/.nojekyll
 
       - name: Configurar Github Pages
         uses: actions/configure-pages@v5
