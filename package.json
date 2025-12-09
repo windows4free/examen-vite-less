@@ -1,5 +1,6 @@
 {
-  "name": "pckg",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "bymei-vite-less",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +12,6 @@
   "devDependencies": {
     "less": "^4.4.2",
     "vite": "^7.2.4"
-
   },
   "dependencies": {
     "glob": "^13.0.0",

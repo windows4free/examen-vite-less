@@ -1,0 +1,103 @@
+input, select {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid @border-primary;
+    border-radius: 5px;
+    &:focus {
+        outline: 1.5px solid #333;
+    }
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+select {
+    appearance: none;
+}
+
+div.select {
+    position: relative;
+    &::after {
+        content: '\2304';
+        position: absolute;
+        right: 0px;
+        padding-right: 0.36rem;
+        top: 50%;
+        z-index: 99;
+        transform: translateY(-75%);
+        font-size: 1.5rem;
+        color: @border-primary;
+    }
+}
+
+button {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 3px 3px 5px @shadow-button;
+    cursor: pointer;
+    &.btn-confirmar {
+        background-color: @background-primary;
+        color: @text-primary;
+        border-radius: 30px;
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+        box-shadow: 0 2px 8px @shadow-color;
+        transition: background 0.3s, color 0.3s;
+        &:hover,
+        &:focus {
+            background: @background-secondary;
+            color: @text-primary;
+        }
+    }
+    &.btn-cancelar {
+        background-color: @cancel-color;
+        color: @text-primary;
+    }
+}
+
+.error {
+    color: @error-color;
+}
+
+input.error {
+    color: initial;
+    outline: red;
+    border: solid 1px red;
+}
+
+textarea {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid @border-primary;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 120px;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+}
+
+#contacto-mensaje,
+#form-mensaje {
+    margin-top: 1rem;
+    ul {
+        color: @error-color;
+        padding-left: 1.2rem;
+    }
+    p {
+        font-weight: bold;
+        &[style*="green"] {
+            color: @success-color;
+        }
+    }
+}
