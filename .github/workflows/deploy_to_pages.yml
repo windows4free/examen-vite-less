@@ -38,7 +38,7 @@ jobs:
       - name: Compilar Sitio (BUILD)
         run: npm run build
         env:
-          DEPLOY_BASE_URL: /ByMei-Vite-Less/
+          DEPLOY_BASE_URL: /examen-vite-less/
 
       - name: Verificar contenido del dist
         run: ls -R dist
