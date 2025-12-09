@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contáctenos - By Mei</title>
+    <meta name="description" content="Ponte en contacto con By Mei para pedidos, dudas o sugerencias.">
+    <link rel="stylesheet" href="less/style.less" />
+</head>
+<body>
+    {{>header}}
+    <main>
+        <section class="container">
+            <h2>Contáctanos</h2>
+            <div class="grid-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <form id="contactoForm" novalidate>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required />
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            <button type="submit" class="btn-confirmar">Enviar</button>
+                        </form>
+                        <div id="contacto-mensaje"></div>
+                    </div>
+                    <div class="col-sm-12 col-md-6" style="text-align:center;">
+                        <h3>O contáctanos directamente:</h3>
+                        <p>
+                            WhatsApp: <a href="https://wa.me/50496425587" target="_blank">‪+504 9642-5587‬</a><br>
+                            Instagram: <a href="https://www.instagram.com/bymei.hn?igsh=MWc3emd2eGpoYXlqdg==" target="_blank">@bymei.hn</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    {{>footer}}
+    <script type="module" src="/js/contactoValidation.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Donaciones - By Mei</title>
+    <meta name="description" content="Dona materiales o productos para ayudar a más personas con By Mei.">
+    <link rel="stylesheet" href="less/style.less" />
+</head>
+<body>
+    {{>header}}
+    <main>
+        <section class="container">
+            <h2>Haz una Donación</h2>
+            <p>¡Ayúdanos a llevar alegría a más personas! Puedes donar materiales o productos para crear más arreglos solidarios.</p>
+            <form id="donacionForm" class="grid-container" novalidate>
+                <div class="row m-2">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="tucorreo@email.com" required />
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="tipo">¿Qué deseas donar?</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="materiales">Materiales (limpiapipas, papel, listones, etc.)</option>
+                            <option value="productos">Productos terminados</option>
+                            <option value="dinero">Aporte económico</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="mensaje">Mensaje (opcional)</label>
+                        <input type="text" id="mensaje" name="mensaje" placeholder="¿Algo que quieras agregar?" />
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-sm-12 center-content">
+                        <button type="submit" class="btn-confirmar">Enviar Donación</button>
+                    </div>
+                </div>
+            </form>
+            <div id="form-mensaje"></div>
+        </section>
+    </main>
+    {{>footer}}
+    <script type="module" src="/js/formValidation.js"></script>
+</body>
+</html>
