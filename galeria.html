@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Galería de Fotos - By Mei</title>
+    <meta name="description" content="Mira algunos de los arreglos y creaciones de By Mei en nuestra galería de fotos.">
+    <link rel="stylesheet" href="less/style.less" />
+</head>
+<body>
+    {{>header}}
+    <main>
+        <section class="container">
+            <h2>Galería de Fotos</h2>
+            <p>Estos son algunos de los arreglos y creaciones que hemos realizado con mucho cariño. ¡Puedes pedir el tuyo personalizado!</p>
+            {{>galeria items=galeriaItems}}
+        </section>
+    </main>
+    {{>footer}}
+</body>
+</html>
