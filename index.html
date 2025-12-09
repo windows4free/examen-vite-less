@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>By Mei - Inicio</title>
+    <meta name="description" content="By Mei crea arreglos personalizados para unir personas y crear ambientes amorosos. Descubre cómo un regalo puede cambiar un día.">
+    <link rel="stylesheet" href="less/style.less" />
+  </head>
+  <body>
+    {{>header}}
+    <main>
+      {{>hero
+        imgDesktop="imgs/heropanel.png"
+        imgTablet="imgs/heropanel.png"
+        imgMobile="imgs/heropanel.png"
+        imgAlt="Arreglo destacado By Mei"
+        content=heroContent
+      }}
+      <section class="center-content" style="margin: 2rem 0;">
+        <a href="galeria.html">
+            <button class="btn-confirmar" style="font-size:1.5rem; padding:1rem 2.5rem;">
+                Ver Galería de Fotos
+            </button>
+        </a>
+      </section>
+      <section class="container">
+        <section class="grid-container">
+            <div class="row vcenter">
+                <div class="col-sm-12 col-md-8">
+                    <h2>¿Por qué elegir By Mei?</h2>
+                    <ul>
+                        <li>Unimos personas a través de detalles hechos con amor y dedicación.</li>
+                        <li>Cada arreglo es único, personalizado y pensado para crear momentos inolvidables.</li>
+                        <li>Utilizamos materiales de calidad y cuidamos cada detalle en el proceso creativo.</li>
+                        <li>Ofrecemos opciones para todas las ocasiones: amistad, amor, agradecimiento, celebraciones y más.</li>
+                        <li>Apoyas un emprendimiento local que busca hacer el mundo más social, alegre y amoroso.</li>
+                        <li>Realizamos entregas a domicilio para que tu sorpresa llegue a tiempo y en perfectas condiciones.</li>
+                        <li>Te ayudamos a expresar tus sentimientos con mensajes y dedicatorias personalizadas.</li>
+                        <li>Nos apasiona ver sonrisas y contribuir a que las personas se acerquen y se reconcilien.</li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-4 img-col">
+                    <img src="imgs/arreglo1.jpg" alt="Arreglo decorativo By Mei" />
+                </div>
+            </div>
+        </section>
+      </section>
+      <section class="center-content" style="margin: 2rem 0;">
+        <a href="como-ayudar.html">
+            <button class="btn-confirmar" style="font-size:1.2rem; padding:0.8rem 2rem;">
+                Descubre Cómo Ayudar
+            </button>
+        </a>
+      </section>
+    </main>
+    {{>footer}}
+  </body>
+</html>
