@@ -39,9 +39,15 @@ jobs:
         env:
           DEPLOY_BASE_URL: /ByMei-Vite-Less/
 
-      # 👇 NUEVO PASO (Evita que Pages ignore /assets o los recorra como Jekyll)
-      - name: Evitar procesamiento de GitHub Pages
-        run: touch dist/.nojekyll
+
+      - name: Verificar contenido del dist
+        run: ls -R dist
+
+      - name: Copiar carpeta assets
+        run: |
+          mkdir -p dist/assets
+          cp -r dist/assets dist/ 2>/dev/null || true
+          touch dist/.nojekyll
 
       - name: Configurar Github Pages
         uses: actions/configure-pages@v5
