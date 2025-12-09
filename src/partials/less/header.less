@@ -1,0 +1,76 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @background-primary;
+    color: @text-primary;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 8px @shadow-color;
+    @media (max-width: @breakpoints-tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .brand-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        @media (max-width: @breakpoints-tablet) {
+            width: 100%;
+            justify-content: flex-start;
+        }
+        img.brand {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid @background-container;
+            background: @background-primary-light;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: @text-primary;
+        }
+    }
+    nav {
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            @media (max-width: @breakpoints-tablet) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+                width: 100%;
+            }
+            li {
+                a {
+                    color: @text-primary;
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+                    border-radius: 20px;
+                    background: transparent;
+                    transition: background 0.3s;
+                    font-weight: bold;
+                    display: block;
+                    @media (max-width: @breakpoints-tablet) {
+                        width: 100%;
+                        padding: 0.7rem 1rem;
+                        border-radius: 0;
+                        border-bottom: 1px solid fadeout(@text-primary, 80%);
+                    }
+                    &:hover,
+                    &:focus,
+                    &.active {
+                        background: @background-secondary;
+                        color: @text-primary;
+                    }
+                }
+            }
+        }
+    }
+}
